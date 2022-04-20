@@ -1,0 +1,58 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\bruker\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Users\bruker\Downloads\wamp64\bin\mysql\mysql5.7.23\bin;C:\wamp\bin\php\php5.6.38;C:\composer;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\bruker\AppData\Roaming\npm;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\ProgramData\chocolatey\bin;C:\Users\bruker\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\bruker\AppData\Roaming\Composer\vendor\bin;C:\Users\bruker\composer;C:\Users\bruker\.dotnet\tools;C:\Users\bruker\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\bruker\AppData\Local\GitHubDesktop\bin;C:\Users\bruker\AppData\Local\Microsoft\WindowsApps;C:\Users\bruker\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\bruker\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.14.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/expo: tunneling socket could not be established, statusCode=400
+      at ClientRequest.onConnect (C:\Users\bruker\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:152358:19)
+      at Object.onceWrapper (node:events:646:26)
+      at ClientRequest.emit (node:events:526:28)
+      at Socket.socketOnData (node:_http_client:522:11)
+      at Socket.emit (node:events:526:28)
+      at addChunk (node:internal/streams/readable:315:12)
+      at readableAddChunk (node:internal/streams/readable:289:9)
+      at Socket.Readable.push (node:internal/streams/readable:228:10)
+      at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+
+npm manifest: 
+  {
+    "name": "task-app",
+    "version": "1.0.0",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "~44.0.0",
+      "expo-status-bar": "~1.2.0",
+      "react": "17.0.1",
+      "react-dom": "17.0.1",
+      "react-native": "0.64.3",
+      "react-native-web": "0.17.1"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.12.9"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
