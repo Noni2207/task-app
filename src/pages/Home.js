@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Header from '../components/Header';
+import StatusCard from '../components/StatusCard';
 
 export default function App() {
     const styles = StyleSheet.create({
