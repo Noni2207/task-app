@@ -24,7 +24,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {showPages()}
-      <StatusBar style="auto" />
+      
     </View>
   );
 }

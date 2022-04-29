@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar } from 'react-native';
 import Header from '../components/Header';
 import StatusCard from '../components/StatusCard';
 
@@ -9,14 +9,13 @@ export default function App() {
           flex: 1,
           backgroundColor: '#F7FAFD',
         },
-        top: {
+       top: {
             backgroundColor: '#221040'
         },
         contanier: {
             paddingRight: 20,
             paddingLeft: 20,
-            paddingtTop: 36,
-           
+            paddingTop: 20, 
         },
         text: {
             color: 'white'
@@ -42,6 +41,7 @@ export default function App() {
       });
   return (
     <View style={styles.home}>
+        <StatusBar backgroundColor='#221040' barStyle='light-content'/>
        <View style={styles.top}>
          <View style={styles.contanier}>
              <Header/>
