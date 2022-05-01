@@ -44,6 +44,7 @@ export default function App() {
        <View style={styles.top}>
          <View style={styles.contanier}>
              <Header/>
+             <StatusCard/>
          </View>
        </View>
        <TouchableOpacity style={styles.addTaskBtn}>
