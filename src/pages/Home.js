@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar } from 'react-native';
 import Header from '../components/Header';
 import StatusCard from '../components/StatusCard';
+import Task from '../components/Task';
 
 export default function App() {
     const styles = StyleSheet.create({
@@ -48,6 +49,7 @@ export default function App() {
              <StatusCard/>
          </View>
        </View>
+       <Task/>
        <TouchableOpacity style={styles.addTaskBtn}>
            <Text style={styles.plus}>+</Text>
 
