@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput} from 'react-native';
 
-
-export default (props) => {
+export default function App() {
     const styles = StyleSheet.create({
         home: {
           flex: 1,
