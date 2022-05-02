@@ -5,7 +5,7 @@ import Home from './src/pages/Home';
 import Create from './src/pages/Create';
 
 export default function App() {
-  const [currentRoute, setRoute] = useState('Home')
+  const [currentRoute, setRoute] = useState('Home');
   const styles = StyleSheet.create({
     container: {
       flex: 1,

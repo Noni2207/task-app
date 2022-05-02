@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput} from 'react-native';
 
-export default function App() {
+export default (props) => {
     const styles = StyleSheet.create({
         home: {
           flex: 1,
@@ -71,16 +71,16 @@ export default function App() {
         }
         
       });
-      const handeleBackBtn = () => {
-        (props.setRoute('Home'))
-    }
+      const handleBackBtn = () => {
+       props.setRoute("Home");
+    };
   return (
     <View style={styles.home}>
         <StatusBar backgroundColor='#221040' barStyle='light-content'/>
        <View style={styles.top}>
          <View style={styles.contanier}>
            <View style={styles.menuContanier}>
-               <TouchableOpacity onPress={handeleBackBtn}>
+               <TouchableOpacity onPress={handleBackBtn}>
                <Text style={styles.backBtn}>Back</Text>
                </TouchableOpacity>
            </View>

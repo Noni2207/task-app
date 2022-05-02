@@ -40,9 +40,9 @@ export default (props) => {
             shadowRadius: 6.68
         }
       });
-      const handelAddTaskBtn = () => {
-          (props.setRoute('Create'))
-      }
+      const handleAddTaskBtn = () => {
+          props.setRoute("Create");
+      };
   return (
     <View style={styles.home}>
         <StatusBar backgroundColor='#221040' barStyle='light-content'/>
@@ -53,7 +53,7 @@ export default (props) => {
          </View>
        </View>
        <Task/>
-       <TouchableOpacity style={styles.addTaskBtn} onPress={handelAddTaskBtn}>
+       <TouchableOpacity style={styles.addTaskBtn} onPress={handleAddTaskBtn}>
            <Text style={styles.plus}>+</Text>
 
        </TouchableOpacity>
