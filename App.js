@@ -5,7 +5,7 @@ import Home from './src/pages/Home';
 import Create from './src/pages/Create';
 
 export default function App() {
-  const [currentRoute, setRoute] = useState('Create')
+  const [currentRoute, setRoute] = useState('Home')
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -15,10 +15,10 @@ export default function App() {
   const showPages = () => {
     switch (currentRoute) {
       case "Home":
-        return <Home></Home>;
+        return <Home currentRoute={currentRoute} setRoute={setRoute}/>;
         break;
       case "Create":
-        return <Create></Create>;
+        return <Create currentRoute={currentRoute} setRoute={setRoute}/>;
         break;
       default:
         break;

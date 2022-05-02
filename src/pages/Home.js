@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import StatusCard from '../components/StatusCard';
 import Task from '../components/Task';
 
-export default function App() {
+export default (props) => {
     const styles = StyleSheet.create({
         home: {
           flex: 1,
@@ -40,6 +40,9 @@ export default function App() {
             shadowRadius: 6.68
         }
       });
+      const handelAddTaskBtn = () => {
+          (props.setRoute('Create'))
+      }
   return (
     <View style={styles.home}>
         <StatusBar backgroundColor='#221040' barStyle='light-content'/>
@@ -50,7 +53,7 @@ export default function App() {
          </View>
        </View>
        <Task/>
-       <TouchableOpacity style={styles.addTaskBtn}>
+       <TouchableOpacity style={styles.addTaskBtn} onPress={handelAddTaskBtn}>
            <Text style={styles.plus}>+</Text>
 
        </TouchableOpacity>
