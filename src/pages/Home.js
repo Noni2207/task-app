@@ -14,7 +14,7 @@ export default function App() {
         contanier: {
             paddingRight: 20,
             paddingLeft: 20,
-            paddingtTop: 36,
+            paddingtTop: 20,
            
         },
         text: {
