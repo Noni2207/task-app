@@ -52,7 +52,8 @@ export default (props) => {
              <StatusCard/>
          </View>
        </View>
-       <Task/>
+       <Task currentTask={props.currentTask} 
+             setTask={props.setTask}/>
        <TouchableOpacity style={styles.addTaskBtn} onPress={handleAddTaskBtn}>
            <Text style={styles.plus}>+</Text>
 

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import { clickProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
 
-export default function App() {
+export default (props) => {
     const styles = StyleSheet.create({
         tasks: {
             flex: 1,
@@ -37,22 +38,9 @@ export default function App() {
 
         }
       });
-      const task = [
-          {
-              id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
-              title: 'Clean Your Car'
-          },
-          {
-              id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
-              title: 'Pay Light Bill'
-          },
-          {
-              id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
-              title: 'Go on Concert'
-          }
-      ];
+      
       const showTasks = () => {
-          return task.map ((task) => {
+          return props.currentTask.map ((task) => {
             return (
                 <View style={styles.task} key={task.id}>
                   <Text style={styles.taskTitle}>{task.title}</Text>
