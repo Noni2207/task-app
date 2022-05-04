@@ -3,9 +3,11 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/pages/Home';
 import Create from './src/pages/Create';
+import Edit from './src/pages/Edit';
 
 export default function App() {
   const [currentRoute, setRoute] = useState('Home');
+  const [activeTask, setActiveTask] = useState('');
   const [currentTask, setTask] = useState([
     {
         id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
@@ -41,10 +43,26 @@ export default function App() {
         setRoute={setRoute}
         currentTask={currentTask} 
         setTask={setTask}
+        activeTask={activeTask} 
+        setActiveTask={setActiveTask}
         />;
         break;
       case "Create":
-        return <Create currentRoute={currentRoute} setRoute={setRoute}/>;
+        return <Create 
+        currentRoute={currentRoute} 
+        setRoute={setRoute}
+        currentTask={currentTask} 
+        setTask={setTask}
+        />;
+        break;
+      case "Edit":
+        return <Edit 
+        currentRoute={currentRoute} 
+        setRoute={setRoute}
+        currentTask={currentTask} 
+        setTask={setTask}
+        activeTask={activeTask}
+        />;
         break;
       default:
         break;

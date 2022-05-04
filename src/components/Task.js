@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import { TouchableHighlight } from 'react-native-web';
 import { clickProps } from 'react-native-web/dist/cjs/modules/forwardedProps';
 
 export default (props) => {
@@ -38,13 +39,21 @@ export default (props) => {
 
         }
       });
-      
+      const handleTaskClick = () => {
+         
+         props.setRoute('Edit'); 
+         alert("id");
+      };
       const showTasks = () => {
           return props.currentTask.map ((task) => {
             return (
-                <View style={styles.task} key={task.id}>
+                <TouchableHighlight 
+                style={styles.task} 
+                key={task.id} 
+                onPress={handleTaskClick.bind(null, task.id)}
+                >
                   <Text style={styles.taskTitle}>{task.title}</Text>
-                </View>
+                </TouchableHighlight>
             )
           })
       }
