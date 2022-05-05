@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput} from 'react-native';
+import { TouchableHighlight } from 'react-native-web';
 
 export default (props) => {
     const styles = StyleSheet.create({
@@ -78,16 +79,30 @@ export default (props) => {
     const [formState, setFormState] = useState({
         id: "",
         title: "",
-        discripton: "",
+        description: "",
         status: "",
-    })
+    });
     useEffect(() => {
-        const task =  props.currentTasks.filter((item) => {
-            return item.id == props.activeTask
+        const task =  props.currentTask.filter((item) => {
+            return item.id == props.activeTask;
         })[0];
-        setFormState(task)
+        setFormState(task);
     }, [])
-        
+       const handeleChange = (name, text) => {
+         const newState = Object.assign({}, formState, {
+           [name]: text
+         });
+         setFormState(newState);
+       };
+       const submit = () => {
+         let taskIndex = props.currentTask.findIndex(
+           x => x.id === props.activeTask
+         );
+         let newTask = [...props.currentTask];
+         newTask.splice(taskIndex, 1, formState);
+         props.setTask(newTask);
+         props.setRoute('Home');
+       }
       return (
     <View style={styles.home}>
         <StatusBar backgroundColor='#221040' barStyle='light-content'/>
@@ -107,20 +122,23 @@ export default (props) => {
               <TextInput
                 style={styles.textInput}
                 placeholder="Enter titile"
-                //onChangeText={newText => setText(newText)}
+                onChangeText={text => handeleChange('title', text)}
                 value={formState.title}
               /> 
-              <Text style={styles.label}>Descripton</Text>
+              <Text style={styles.label}>Description</Text>
               <TextInput
                 style={styles.textArea}
                 placeholder="Enter titile"
                 //multiline={true}
-                //onChangeText={newText => setText(newText)}
-                value={formState.discripton}
+                onChangeText={text => handeleChange('description', text)}
+                value={formState.description}
               /> 
-              <View style={styles.submitButton}>
+              <TouchableHighlight 
+              style={styles.submitButton}
+              onPress={submit}
+              >
                   <Text style={styles.submitButtonText}>Save</Text>
-              </View>
+              </TouchableHighlight>
           </View>
        </View>
     </View>

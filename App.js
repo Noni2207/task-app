@@ -12,19 +12,19 @@ export default function App() {
     {
         id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
         title: 'Clean Your Car',
-        descripton: "test",
+        description: "test",
         status: "initiated",
     },
     {
         id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
         title: 'Pay Light Bill',
-        descripton: "test",
+        description: "test",
         status: "initiated",
     },
     {
         id:`skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
         title: 'Go on Concert',
-        descripton: "test",
+        description: "test",
         status: "initiated",
     }
 ]);

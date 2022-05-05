@@ -96,7 +96,7 @@ export default (props) => {
                 //onChangeText={newText => setText(newText)}
                 //defaultValue={text}
               /> 
-              <Text style={styles.label}>Descripton</Text>
+              <Text style={styles.label}>Description</Text>
               <TextInput
                 style={styles.textArea}
                 placeholder="Enter titile"

@@ -39,10 +39,10 @@ export default (props) => {
 
         }
       });
-      const handleTaskClick = () => {
-         
+      const handleTaskClick = id => {
+        props.setActiveTask(id);
          props.setRoute('Edit'); 
-         alert("id");
+        
       };
       const showTasks = () => {
           return props.currentTask.map ((task) => {
