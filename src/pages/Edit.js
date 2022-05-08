@@ -102,7 +102,7 @@ export default (props) => {
          newTask.splice(taskIndex, 1, formState);
          props.setTask(newTask);
          props.setRoute('Home');
-       }
+       };
       return (
     <View style={styles.home}>
         <StatusBar backgroundColor='#221040' barStyle='light-content'/>

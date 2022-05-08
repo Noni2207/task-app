@@ -1,7 +1,13 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput, TouchableHighlight} from 'react-native';
 
 export default (props) => {
+  const [formState, setFormState] = useState({
+    id: `skills_${new Date().getTime()}_${Math.random()* Math.random()}`,
+    title: "",
+    description: "",
+    status: "initiated",
+});
     const styles = StyleSheet.create({
         home: {
           flex: 1,
@@ -68,12 +74,57 @@ export default (props) => {
         submitButtonText: {
             color: 'white',
             fontSize: 18
-        }
+        },
+        statusContainer: {
+          flexDirection: 'row',
+        },
+        statusBtn1: {
+          backgroundColor: formState.status == 'completed' ? 'grey' : 'white',
+          padding: 10,
+          marginBottom: 10,
+          borderColor: '#d1d1d1',
+          borderWidth: 1,
+          borderRadius: 5,
+          marginRight: 15
+        },
+        statusBtn2: {
+          backgroundColor: formState.status == 'initiated' ? 'yellow' : 'white',
+          padding: 10,
+          marginBottom: 10,
+          borderColor: '#d1d1d1',
+          borderWidth: 1,
+          borderRadius: 5,
+          marginRight: 15
+
+        },
+        statusBtn3: {
+          backgroundColor: formState.status == 'delete' ? 'red' : 'white',
+          padding: 10,
+          marginBottom: 10,
+          borderColor: '#d1d1d1',
+          borderWidth: 1,
+          borderRadius: 5,
+          marginRight: 15
+
+        },
         
       });
       const handleBackBtn = () => {
        props.setRoute("Home");
     };
+   
+  const handeleChange = (name, text) => {
+    const newState = Object.assign({}, formState, {
+      [name]: text
+    });
+    setFormState(newState);
+  };
+  const submit = () => {
+    let newTask = [...props.currentTask, formState];
+    props.setTask(newTask);
+    props.setRoute('Home');
+  };
+  
   return (
     <View style={styles.home}>
         <StatusBar backgroundColor='#221040' barStyle='light-content'/>
@@ -93,20 +144,49 @@ export default (props) => {
               <TextInput
                 style={styles.textInput}
                 placeholder="Enter titile"
-                //onChangeText={newText => setText(newText)}
-                //defaultValue={text}
+                onChangeText={text => handeleChange('title', text)}
+                value={formState.title}
               /> 
               <Text style={styles.label}>Description</Text>
               <TextInput
                 style={styles.textArea}
                 placeholder="Enter titile"
                 //multiline={true}
-                //onChangeText={newText => setText(newText)}
-                //defaultValue={text}
+                onChangeText={text => handeleChange('description', text)}
+                value={formState.description}
               /> 
-              <View style={styles.submitButton}>
+              <Text style={styles.label}>Status</Text>
+               <View style={styles.statusContainer}>
+                <TouchableHighlight 
+                  style={styles.statusBtn1}
+                  onPress={() => handeleChange('status', 'completed')}
+                  underlayColor= 'white'
+                >
+                  <Text style={styles.statusBtnText}>Completed</Text>
+                </TouchableHighlight>
+                <TouchableHighlight 
+                  style={styles.statusBtn2}
+                  onPress={() => handeleChange('status', 'initiated')}
+                  underlayColor= 'white'
+                
+                >
+                  <Text style={styles.statusBtnText}>Initiated</Text>
+                </TouchableHighlight>
+                <TouchableHighlight 
+                  style={styles.statusBtn3}
+                  onPress={() => handeleChange('status', 'delete')}
+                  underlayColor= 'white'
+                >
+                  <Text style={styles.statusBtnText}>Delete</Text>
+                </TouchableHighlight>
+               </View>
+              <TouchableHighlight 
+                  style={styles.submitButton}
+                  onPress={submit}
+                  underlayColor= '#0a70ff'
+              >
                   <Text style={styles.submitButtonText}>Save</Text>
-              </View>
+              </TouchableHighlight>
           </View>
        </View>
     </View>
