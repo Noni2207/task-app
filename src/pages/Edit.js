@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput} from 'react-native';
-import { TouchableHighlight } from 'react-native-web';
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar, TextInput, TouchableHighlight} from 'react-native';
 
 export default (props) => {
     const styles = StyleSheet.create({

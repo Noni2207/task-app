@@ -6,7 +6,7 @@ import Create from './src/pages/Create';
 import Edit from './src/pages/Edit';
 
 export default function App() {
-  const [currentRoute, setRoute] = useState('Create');
+  const [currentRoute, setRoute] = useState('Home');
   const [activeTask, setActiveTask] = useState('');
   const [currentTask, setTask] = useState([
     {

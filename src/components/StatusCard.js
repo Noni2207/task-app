@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
-export default function App() {
+export default (props) => {
     const styles = StyleSheet.create({
       statusCards: {
         flexDirection: 'row',
@@ -69,6 +69,21 @@ export default function App() {
           fontWeight: '100',
       },
       });
+      const totalCompleted = () => {
+       let number = props.currentTask.filter((item) => item.status == 'completed');
+        number = number.lenght;
+        return number;
+      };
+      const totalInitiated = () => {
+       let number = props.currentTask.filter((item) => item.status == 'initiated');
+        number = number.lenght;
+        return number;
+      };
+      const totalDeleted = () => {
+       let number = props.currentTask.filter((item) => item.status == 'deleted');
+        number = number.lenght;
+        return number;
+      };
   return (
     <View style={styles.statusCards}>
        <View style={styles.column}>
@@ -77,7 +92,7 @@ export default function App() {
              <Text style={styles.title}>Completed</Text>
             </View>
             <View style={styles.numberContainer}>
-             <Text style={styles.number}>100</Text>
+             <Text style={styles.number}>{totalCompleted()}</Text>
             </View>
          </View>
        </View>
@@ -87,7 +102,7 @@ export default function App() {
              <Text style={styles.title}>Initiated</Text>
             </View>
             <View style={styles.numberContainer}>
-             <Text style={styles.number}>100</Text>
+             <Text style={styles.number}>{totalInitiated()}</Text>
             </View>
          </View>
        </View>
@@ -97,7 +112,7 @@ export default function App() {
              <Text style={styles.title}>Deleted</Text>
             </View>
             <View style={styles.numberContainer}>
-             <Text style={styles.number}>100</Text>
+             <Text style={styles.number}>{totalDeleted()}</Text>
             </View>
          </View>
        </View>

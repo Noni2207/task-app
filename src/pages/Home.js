@@ -49,7 +49,7 @@ export default (props) => {
        <View style={styles.top}>
          <View style={styles.contanier}>
              <Header/>
-             <StatusCard/>
+             <StatusCard currentTask={props.currentTask}/>
          </View>
        </View>
        <Task 
